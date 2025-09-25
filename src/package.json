@@ -1,0 +1,22 @@
+{
+    "name": "aifit-landing-pages",
+    "version": "1.0.0",
+    "description": "Dynamic voucher landing pages for AIFit.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^5.1",
+        "express-handlebars": "^8.0.3",
+        "i18n": "^0.15.1",
+        "path": "^0.12.7"
+    },
+    "engines": {
+        "node": "24.x"
+    },
+    "repository": {
+        "url": "https://github.com/WOM-Platform/VoucherLandingPages"
+    },
+    "license": "MIT"
+}

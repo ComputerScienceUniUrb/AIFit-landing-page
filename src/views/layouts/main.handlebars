@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{{ i18n "lang-tag" }}}">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>AIFit</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <link rel="stylesheet" href="/pico.amber.min.css" />
+        <style type="text/css">
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            body > main {
+                flex-grow: 1;
+            }
+
+            header figure.logo {
+                text-align: center;
+            }
+            header figure.logo img {
+                max-width: 50vw;
+                min-width: 320px;
+                height: auto;
+            }
+            header figure.logo figcaption {
+                display: none;
+            }
+
+            .store-link > div {
+                text-align: center;
+            }
+            .store-link img {
+                width: 240px;
+                height: auto;
+            }
+        </style>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+    </head>
+
+    <body>
+        <header class="container">
+            <figure class="logo">
+                <img src="/aifit_logo.png" alt="AIFit application logo" width="800" height="776" />
+                <figcaption>
+                    {{{ i18n "meta-description" }}}
+                </figcaption>
+        </header>
+
+        <main class="container">
+            {{{ body }}}
+        </main>
+
+        <footer class="container">
+                <p>
+                    <a href="https://digit.srl/privacy/aifit/">{{{ i18n "privacy-policy" }}}</a><br />
+                    Università di Urbino&nbsp;“Carlo Bo” / DIGIT&nbsp;srl &mdash;&nbsp;{{ year }}
+                </p>
+        </footer>
+
+    </body>
+</html>
