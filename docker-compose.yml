@@ -4,7 +4,7 @@ networks:
 
 services:
   server:
-    build: "./src/Dockerfile"
+    build: "./src"
     networks:
     - web
     labels:

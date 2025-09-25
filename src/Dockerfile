@@ -3,7 +3,7 @@ FROM node:24.8-alpine
 ENV PORT=8000
 EXPOSE 8000
 
-COPY ./src /code
+COPY . /code
 WORKDIR /code
 
 RUN npm install
