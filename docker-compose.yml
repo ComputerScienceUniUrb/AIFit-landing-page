@@ -1,0 +1,23 @@
+networks:
+  web:
+    external: true
+
+services:
+  server:
+    build: "./src/Dockerfile"
+    networks:
+    - web
+    labels:
+    - "traefik.enable=true"
+    - "traefik.docker.network=web"
+    - "traefik.http.routers.aifit-web.rule=Host(`aifit.digit.srl`)"
+    - "traefik.http.routers.aifit-web.entrypoints=websecure"
+
+    - "traefik.http.routers.aifit-web-insecure.rule=Host(`aifit.digit.srl`)"
+    - "traefik.http.routers.aifit-web-insecure.entrypoints=web"
+    - "traefik.http.routers.aifit-web-insecure.middlewares=basic-https-redirect@file"
+    restart: unless-stopped
+    logging:
+      driver: "local"
+      options:
+        max-size: "30m"
