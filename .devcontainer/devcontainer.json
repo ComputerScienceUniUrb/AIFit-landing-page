@@ -1,6 +1,9 @@
 {
 	"name": "Node.js",
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+	"workspaceMount": "source=${localWorkspaceFolder}/src,target=/code,type=bind",
+	"workspaceFolder": "/code",
+	"postCreateCommand": "node server.js",
 	"containerEnv": {
 		"PORT": "4444"
 	},
