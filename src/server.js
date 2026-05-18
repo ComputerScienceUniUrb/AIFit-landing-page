@@ -1,46 +1,73 @@
-const express = require('express');
+const express = require("express");
+const path = require("path");
+const { I18n } = require("i18n");
+const exphbs = require("express-handlebars");
+
 const app = express();
 
-const path = require('path');
-const { I18n } = require('i18n');
+// i18n CONFIG
 const i18n = new I18n({
-    locales: ['en', 'it'],
-    fallbacks: {
-        'en-*': 'en',
-        'it-*': 'it',
-    },
-    directory: path.join(__dirname, 'locales'),
-    defaultLocale: 'en',
+  locales: ["en", "it"],
+  defaultLocale: "en",
+  directory: path.join(__dirname, "locales"),
+  objectNotation: true,
 });
+
+// INIT i18n
 app.use(i18n.init);
 
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({
-    helpers: {
-        year: function () { return new Date().getFullYear(); },
-        i18n: function (str) {
-            if (!str) return str;
-            return this.res.__(str);
-        },
-        component: (str) => encodeURIComponent(str),
+// LANGUAGE PER REQUEST
+app.use((req, res, next) => {
+  let locale = "it";
+
+  // 1. URL override
+  if (req.query?.lang === "it") locale = "it";
+  if (req.query?.lang === "en") locale = "en";
+
+  // 2. fallback to browser language
+  if (!req.query?.lang) {
+    const browserLang = req.headers["accept-language"];
+    if (browserLang?.startsWith("it")) {
+      locale = "it";
     }
-});
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(function (req, res, next) {
-    res.locals.res = res;
-    next();
+  }
+
+  req.setLocale(locale);
+
+  console.log("FINAL LOCALE:", req.getLocale());
+
+  // expose to templates
+  res.locals.currentLang = locale;
+  res.locals.__ = res.__.bind(res);
+
+  next();
 });
 
-app.use(express.static('public'));
+// HANDLEBARS
+const hbs = exphbs.create({
+  helpers: {
+    i18n: function (key, options) {
+      return options.data.root.__?.(key) || key;
+    },
 
-app.get('/', (req, res) => {
-    res.render('homepage', { });
+    year: () => new Date().getFullYear(),
+
+    component: (str) => encodeURIComponent(str),
+  },
 });
 
-/**
- * Start ’er up!
- */
-const listener = app.listen(process.env.PORT, function () {
-    console.log('Now listening on port ' + listener.address().port);
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+
+// STATIC FILES
+app.use(express.static("public"));
+
+// ROUTES
+app.get("/", (req, res) => {
+  res.render("homepage");
+});
+
+// START SERVER
+const listener = app.listen(process.env.PORT || 3000, () => {
+  console.log("Server listening on port " + listener.address().port);
 });

@@ -1,73 +1,80 @@
-<!DOCTYPE html>
-<html lang="{{{ i18n "lang-tag" }}}">
-    <head>
-        <meta charset="utf-8" />
+<html lang="{{{i18n 'lang-tag'}}}">
+  <head>
+    <meta charset="utf-8" />
 
-        <title>AIFit</title>
+    <title>AIFit</title>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="color-scheme" content="light dark" />
-        <link rel="stylesheet" href="/pico.amber.min.css" />
-        <style type="text/css">
-            body {
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-            }
-            body > main {
-                flex-grow: 1;
-            }
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
 
-            header figure.logo {
-                text-align: center;
-            }
-            header figure.logo img {
-                max-width: 50vw;
-                min-width: 320px;
-                height: auto;
-            }
-            header figure.logo figcaption {
-                display: none;
-            }
+    <link href="/css/style.css" rel="stylesheet" />
 
-            main hgroup {
-                margin-bottom: calc(var(--pico-block-spacing-vertical) * 2);
-            }
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
 
-            .store-link > div {
-                text-align: center;
-            }
-            .store-link img {
-                width: 240px;
-                height: auto;
-            }
-        </style>
+  <body>
+    <header
+      id="main-header"
+      class="sticky top-0 z-50 transition-opacity duration-300"
+    >
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-    </head>
+      <div
+        id="header-logo-container"
+        class="flex justify-center max-w-4xl mx-auto px-4 py-2 bg-[#121212] transition-opacity duration-300"
+      >
+        <img
+          src="/aifit_logo.png"
+          alt="AIFit application logo"
+          width="100"
+          height="100"
+        />
+      </div>
 
-    <body>
-        <header class="container">
-            <figure class="logo">
-                <img src="/aifit_logo.png" alt="AIFit application logo" width="800" height="776" />
-                <figcaption>
-                    {{{ i18n "meta-description" }}}
-                </figcaption>
-        </header>
+      <div class="flex justify-end text-sm text-white mx-10 items-center gap-2">
 
-        <main class="container">
-            {{{ body }}}
-        </main>
+        <a href="?lang=en" class="hover:text-[#FDD673] transition">
+          EN
+        </a>
 
-        <footer class="container">
-                <p>
-                    <a href="https://digit.srl/privacy/aifit/">{{{ i18n "privacy-policy" }}}</a><br />
-                    Università di Urbino&nbsp;“Carlo Bo” / DIGIT&nbsp;srl &mdash;&nbsp;{{ year }}
-                </p>
-        </footer>
+        <span>|</span>
 
-    </body>
+        <a href="?lang=it" class="hover:text-[#FDD673] transition">
+          IT
+        </a>
+
+      </div>
+
+    </header>
+
+    <main class="">
+      {{{body}}}
+    </main>
+
+    <footer class="container">
+      <p>
+        <a href="https://digit.srl/privacy/aifit/">{{{i18n
+            "privacy-policy"
+          }}}</a><br />
+        Università di Urbino&nbsp;“Carlo Bo” / DIGIT&nbsp;srl &mdash;&nbsp;{{year}}
+      </p>
+    </footer>
+
+  </body>
 </html>
+
+{{! <script>
+
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => { if (window.scrollY > 100) {
+  header.classList.add('opacity-0', 'pointer-events-none'); } else {
+  header.classList.remove('opacity-0', 'pointer-events-none'); } });
+</script> }}
+
+<script>
+  const headerDiv = document.getElementById('header-logo-container');
+  window.addEventListener('scroll', () => { if (window.scrollY > 50) {
+  headerDiv.style.opacity = '0.9'; } else { headerDiv.style.opacity = '1'; } });
+</script>

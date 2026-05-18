@@ -1,7 +1,37 @@
 {
-    "lang-tag": "it",
+  "lang-tag": "it",
+  "meta-description": "AIFit, applicazione mobile.",
+  "privacy-policy": "Informativa sulla privacy",
 
-    "meta-description": "AIFit, applicazione mobile.",
+  "hero-subtitle": "La piattaforma di crowdsourcing e crowdsensing per sperimentare il machine learning applicato all’attività motoria e ai contesti quotidiani.",
 
-    "privacy-policy": "Informativa sulla privacy"
+  "intro-p1": "è l’applicazione aperta che permette di partecipare in modo totalmente anonimo a esperimenti di intelligenza artificiale condotti dall’",
+  "intro-p1-link-text": "Università di Urbino",
+  "intro-p1-end": " e da ricercatori di tutto il mondo.",
+
+  "intro-p2": "I modelli di machine learning che riconoscono automaticamente i nostri movimenti si basano su algoritmi addestrati a classificare le attività analizzando i dati dei sensori, come l'accelerometro del tuo smartphone. Questa applicazione permette a chiunque di testare in prima persona il funzionamento, l’efficacia e i limiti dell'IA, trasformando la partecipazione scientifica in un'esperienza accessibile a tutti.",
+
+  "section-research-title": "Una piattaforma aperta alla ricerca",
+  "section-research-p1": "AI Fit non è più solo un'applicazione isolata, ma evolve in un ecosistema di",
+  "section-research-p2": "e",
+  "section-research-p3": ". Questo significa che la raccolta e la validazione dei dati si aprono a nuovi scenari e a network di ricercatori esterni:",
+
+  "card-movements-title": "Concepire nuovi movimenti",
+  "card-movements-desc": "La piattaforma permette di mappare e testare non solo l'attività sportiva tradizionale, ma qualsiasi tipo di sollecitazione o movimento. Un ricercatore potrebbe impostare un esperimento per raccogliere dei dati.",
+
+  "card-management-title": "Gestione e Terze Parti",
+  "card-management-desc": "Chi riveste il ruolo di ricercatore può impostare, guidare e personalizzare le proprie sessioni di sperimentazione, attingendo a un flusso di dati condiviso e accessible, utile ad addestrare modelli di IA sempre più precisi e diversificati.",
+
+  "section-how-title": "Come funziona la sperimentazione",
+  "section-how-p1-start": "Puoi metterti alla prova in autonomia o unirti a sessioni coordinate e guidate. Scansionando un",
+  "section-how-p1-end": "univoco associato a uno specifico esperimento, l’applicazione si sincronizza istantaneamente con il pannello del gestore o dell’istruttore, il quale proporrà (in presenza o online) sequenze di movimenti da compiere tenendo il cellulare nella posizione indicata.",
+  "section-how-p2": "Durante l’esercizio, l’app raccoglie i dati del sensore per verificare in tempo reale la capacità del modello di machine learning di riconoscere l’attività svolta. Al tempo stesso, la traccia generata – rigorosamente anonima e impossibile da ricollegare alla tua identità – contribuisce ad arricchire i dataset globali necessari per migliorare l'accuratezza degli algoritmi futuri.",
+
+  "wom-text-start": "Poiché la partecipazione alla ricerca scientifica genera valore pubblico, ogni minuto dedicato alla sperimentazione viene riconosciuto tramite l'attribuzione di",
+  "wom-text-end": ", speciali voucher che premiano il tuo contributo, accumulabili direttamente nel tuo WOM Pocket.",
+
+  "download-title": "Installa l’applicazione",
+  "download-desc": "L’applicazione AIFit è disponibile gratuitamente per dispositivi iOS e Android tramite gli store ufficiali.",
+  "alt-app-store": "Scarica tramite App Store per iOS",
+  "alt-google-play": "Scarica tramite Google Play per Android"
 }
