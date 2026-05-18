@@ -8,7 +8,7 @@ const app = express();
 // i18n CONFIG
 const i18n = new I18n({
   locales: ["en", "it"],
-  defaultLocale: "en",
+  defaultLocale: "it",
   directory: path.join(__dirname, "locales"),
   objectNotation: true,
 });
@@ -18,25 +18,21 @@ app.use(i18n.init);
 
 // LANGUAGE PER REQUEST
 app.use((req, res, next) => {
-  let locale = "it";
+  let locale = i18n.getLocale();
 
-  // 1. URL override
   if (req.query?.lang === "it") locale = "it";
   if (req.query?.lang === "en") locale = "en";
 
-  // 2. fallback to browser language
   if (!req.query?.lang) {
     const browserLang = req.headers["accept-language"];
-    if (browserLang?.startsWith("it")) {
-      locale = "it";
+
+    if (browserLang?.startsWith("en")) {
+      locale = "en";
     }
   }
 
   req.setLocale(locale);
 
-  console.log("FINAL LOCALE:", req.getLocale());
-
-  // expose to templates
   res.locals.currentLang = locale;
   res.locals.__ = res.__.bind(res);
 
@@ -53,6 +49,8 @@ const hbs = exphbs.create({
     year: () => new Date().getFullYear(),
 
     component: (str) => encodeURIComponent(str),
+
+    eq: (a, b) => a === b,
   },
 });
 
@@ -68,6 +66,4 @@ app.get("/", (req, res) => {
 });
 
 // START SERVER
-const listener = app.listen(process.env.PORT || 3000, () => {
-  console.log("Server listening on port " + listener.address().port);
-});
+const listener = app.listen(process.env.PORT || 3000, () => {});

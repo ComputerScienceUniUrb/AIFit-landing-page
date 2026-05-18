@@ -33,19 +33,42 @@
         />
       </div>
 
+      
       <div class="flex justify-end text-sm text-white mx-10 items-center gap-2">
 
-        <a href="?lang=en" class="hover:text-[#FDD673] transition">
-          EN
-        </a>
+  <a
+    href="?lang=en"
+    class="
+      transition
+      hover:text-[#FDD673]
+      {{#if (eq currentLang 'en')}}
+        text-[#FDD673] font-bold
+      {{else}}
+        text-white
+      {{/if}}
+    "
+  >
+    EN
+  </a>
 
-        <span>|</span>
+  <span>|</span>
 
-        <a href="?lang=it" class="hover:text-[#FDD673] transition">
-          IT
-        </a>
+  <a
+    href="?lang=it"
+    class="
+      transition
+      hover:text-[#FDD673]
+      {{#if (eq currentLang 'it')}}
+        text-[#FDD673] font-bold
+      {{else}}
+        text-white
+      {{/if}}
+    "
+  >
+    IT
+  </a>
 
-      </div>
+</div>
 
     </header>
 
